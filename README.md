@@ -1,6 +1,6 @@
 # Contextual Colorization and Denoising for Low-Light Ultra High Resolution Sequences
 
-Paper: N. Anantrasirichai and D. Bull, "Contextual Colorization and Denoising for Low-Light Ultra High Resolution Sequences," 2021 IEEE International Conference on Image Processing (ICIP), Anchorage, AK, USA, 2021, pp. 1614-1618, doi: 10.1109/ICIP42928.2021.9506694.
+[Paper](https://ieeexplore.ieee.org/document/9506694): N. Anantrasirichai and D. Bull, "Contextual Colorization and Denoising for Low-Light Ultra High Resolution Sequences," 2021 IEEE International Conference on Image Processing (ICIP), 2021, pp. 1614-1618. [[pdf](https://arxiv.org/pdf/2101.01597.pdf)]
 
 ---
 This code was modified from CycleGAN and pix2pix in PyTorch. For installation, please follow the instructions at https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
