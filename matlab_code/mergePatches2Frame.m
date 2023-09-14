@@ -1,6 +1,6 @@
 clear all
 
-hpatch = 360;%
+hpatch = 512;%
 wpatch = hpatch;
 overlapRatio = 0.5;
 hgap = round(hpatch*overlapRatio);
