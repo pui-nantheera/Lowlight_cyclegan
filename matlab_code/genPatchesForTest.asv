@@ -1,0 +1,56 @@
+% FOR TESTING
+
+clear all
+
+% parameters
+maxcount = 2000;
+patchsize = 360;
+expand = floor((1500 - patchsize)/2);
+type = 'testA'; 
+dataFolder = 'W:\ESPRIT\Helen Hobin BBC_frames\NR Test Shots\Moving Subject Moving Camera\ND1.2\';
+dataName = 'H001_C011_07126H_001_ISO100';
+
+outBase = 'W:\datasets\patches\';
+
+outFolder = [outBase,dataName,'\', dataName,'\'];
+outFolderreg = [outBase,dataName,'\', dataName,'_reg\'];
+mkdir(outFolder);
+mkdir(outFolderreg);
+
+
+for k = 224:4:484
+    
+    filename = ['A011_C024_0415WA.',sprintf('%06d',k)];
+    out1Folder = ['D:\Creative\datasets\ESPRIT\Patches512\f7\Seq',sprintf('%03d',floor(k/50)),'_A011_C024_0415WA_001_ISO5000_f7\'];
+    out2Folder = ['D:\Creative\datasets\ESPRIT\Patches512\f7\Seq',sprintf('%03d',floor(k/50)),'_A011_C024_0415WA_001_ISO5000_f7_reg\'];
+    mkdir(out1Folder);
+    mkdir(out2Folder);
+    disp(num2str(k));
+    
+    mkdir(out2Folder);
+    seqFolder = ['D:\Creative\datasets\ESPRIT\still\A011_C024_0415WA_001_ISO5000\'];
+    basenamecur = 'A011_C024_0415WA.';
+    
+    %img = im2double(imread(fullfile([seqFolder], [basenamecur,sprintf('%06d',max(0,k+i)),'.tif'])));
+    img = 0;
+    for i = -3:3
+        img = img + im2double(imread(fullfile([seqFolder], [basenamecur,sprintf('%06d',min(484,max(0,k+i))),'.tif'])));
+    end
+    img = img/7;
+    
+    % start position
+    for x = 1:patchsize/2:size(img,2)%-patchsize+1
+        for y = 1:patchsize/2:size(img,1)%-patchsize+1
+            outName = [filename,'_x',num2str(x),'_y',num2str(y),'.png'];
+            xind = x;
+            yind = y;
+            xend = xind+patchsize-1;
+            yend = yind+patchsize-1;
+            reg = img(max(1,yind-expand):min(size(img,1),yend+expand), max(1,xind-expand):min(size(img,2),xend+expand),:);
+            imwrite(imresize(reg, [patchsize, patchsize]), [outFolderreg, outName]);
+            
+            reg = img(max(1,yind):min(size(img,1),yend), max(1,xind):min(size(img,2),xend),:);
+            imwrite(reg, [outFolder, outName]);
+        end
+    end
+end
