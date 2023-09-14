@@ -3,7 +3,7 @@ clear all
 
 % parameters
 maxcount = 2000;
-patchsize = 360;
+patchsize = 512;
 expand = floor((1500 - patchsize)/2);
 type = 'trainA'; %'trainA' if dark, 'trainB' if bright
 dataFolder = 'W:\ESPRIT\Helen Hobin BBC_frames\NR Test Shots\Moving Subject Moving Camera\ND1.2\';
