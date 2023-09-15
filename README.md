@@ -7,6 +7,8 @@ This code was modified from CycleGAN and pix2pix in PyTorch. For installation, p
 
 ## Data preparation
 
+Please see https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix for data structure for training.
+
 To generate training and testing patches, please see https://github.com/pui-nantheera/Lowlight_cyclegan/tree/main/matlab_code
 
 ## Train
